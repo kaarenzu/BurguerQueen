@@ -1,25 +1,19 @@
 #pedidos {
   width:50%;
 }
+
 .Eliminar {
   color: white;
-
-background: rgba(131, 8, 8, 0.753);
-
-font-size: 100%;
-
-width: 60%;
-
-border-style: none;
+  background: rgba(131, 8, 8, 0.753);
+  font-size: 100%;
+  width: 60%;
+  border-style: none;
 }
+
 .Enviar {
   color: white;
-
-background: rgb(255, 159, 15);
-
-font-size: 100%;
-
-width: 60%;
-
-border-style: none;
+  background: rgb(255, 159, 15);
+  font-size: 100%;
+  width: 60%;
+  border-style: none;
 }
