@@ -1,0 +1,29 @@
+.divTotal {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.waiter {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#btn {
+  height: 6vh;
+  border-radius: 3%; 
+  font-family: 'Open Sans', sans-serif; 
+  font-size: 27px;
+}
+
+.containerTabla {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 4%;
+  margin-left: 2%;
+
+}
