@@ -1,4 +1,4 @@
-@media (min-width:300px) and (max-width:2000px){
+@media (min-width:300px) and (max-width:5000px){
 *{
   padding:0%;
   margin: 0%;
@@ -6,31 +6,31 @@
 .containerHome {
   display:flex;
   width: 100%;
+  flex-direction: row;
+  justify-content: center;
 }
 .home {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 70%;
   margin-top: 3%;
 }
 .botones {
   display: flex;
   flex-direction: column;
-  height: 35vh;
+  height: 31vh;
   align-content: center;
   justify-content: center;
-  width: 32%;
+  width: 45%;
 }
-#btn {
-  width: 100%;
-  margin-top: 27%;
-  height: 8vh;
-  border-radius: 3%;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 49px;
-}
+
 .logo {
   width:50%;
+}
+h1 {
+  color: darkorange;
+
+font-size: xxx-large;
 }
 }
