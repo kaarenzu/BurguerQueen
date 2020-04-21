@@ -46,7 +46,7 @@ class InputOrder extends React.Component {
       <input type="text" className="cliente" id="Cliente" placeholder="Nombre Cliente"
         onChange={this.handleName} ref={this.inputName}
       />
-      <button onClick={this.pedidos}>Guardar</button>
+      {/* <button onClick={this.pedidos}>Guardar</button> */}
     </Fragment>
   }
 }

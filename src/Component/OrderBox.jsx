@@ -46,7 +46,7 @@ class OrderBox extends React.Component {
             </tr>
             <tr>
               <th scope="row">Total</th>
-              <th scope="row">$2000</th>
+              <th scope="row">$0</th>
               <th scope="row"></th>
               <th scope="row"><button className="Enviar">Enviar</button></th>
             </tr>
