@@ -17,7 +17,7 @@ class Navbar extends React.Component {
     this.state = {
       estado: false,
       state: true,
-    
+
     }
     this.onClickEstado = this.onClickEstado.bind(this);
     this.onClickState = this.onClickState.bind(this);
@@ -29,60 +29,58 @@ class Navbar extends React.Component {
     if (!this.state.estado) {
       this.setState({ estado: true })
     }
-    if (this.state.estado) {
+    else if (this.state.estado) {
       this.setState({ estado: false })
     }
     console.log(this.state.estado, 'mi estado')
   }
   render() {
-    
-      return (
-        <Router>
-          <header>
-            <div className='menu_bar'>
-              <img className='ico_menu'
-                onClick={this.onClickEstado}
-                src="https://raw.githubusercontent.com/kaarenzu/Mi-Portafolio/master/src/imagenes/menu.ico" />
-            
-              <img className="ico_logo"
-                onClick={this.onClickEstado}
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSwrFGUW3eAHH7c_izVW_iwr3YiM5sctJojK5Xe1ZgsSVypHKOu&usqp=CAU" />
-            </div>
-          </header>
-          {/* nav movil */}
-          {this.state.estado &&
-            <nav className="menuMovile">
-              <ul>
-                <Link to="/" className="text-white " onClick={this.onClickEstado}><li>Home</li></Link>
-                <Link to="/cocina" className="text-white " onClick={this.onClickEstado}><li>Cocina</li></Link>
-                <Link to="/mesero" className="text-white " onClick={this.onClickEstado}><li>Mesero</li></Link>
-              </ul>
-            </nav>
-          }
-          {/* Nav pc */}
-          <nav className="menu">
+
+    return (
+      <Router>
+        <header>
+          <div className='menu_bar'>
+            <img className='ico_menu'
+              onClick={this.onClickEstado}
+              src={require("../imagenes/menu.ico")} />
+            <img className="ico_logo"
+              onClick={this.onClickEstado}
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSwrFGUW3eAHH7c_izVW_iwr3YiM5sctJojK5Xe1ZgsSVypHKOu&usqp=CAU" />
+          </div>
+        </header>
+        {/* nav movil */}
+        {this.state.estado &&
+          <nav className="menuMovile">
             <ul>
-              <Link to="/" className="text-white "><li>Pedidos listos</li></Link>
-              <Link to="/" className="text-white "><li>Pedidos enviados</li></Link>
-            
+              <Link to="/" className="text-white " onClick={this.onClickEstado}><li>Home</li></Link>
+              <Link to="/cocina" className="text-white " onClick={this.onClickEstado}><li>Cocina</li></Link>
+              <Link to="/mesero" className="text-white " onClick={this.onClickEstado}><li>Mesero</li></Link>
             </ul>
           </nav>
-          <Route exact path="/">
-            <Home/>
-          </Route>
-  
-          <Route path="/mesero">
-            <Waiter/>
-          </Route>
-  
-          <Route path="/cocina">
-            <Kitchen/>
-          </Route>
+        }
+        {/* Nav pc */}
+        <nav className="menu">
+          <ul>
+            <Link to="/" className="text-white "><li>Pedidos listos</li></Link>
+            <Link to="/" className="text-white "><li>Pedidos enviados</li></Link>
+          </ul>
+        </nav>
+        <Route exact path="/">
+          <Home />
+        </Route>
 
-        </Router>
-      )
-    }
-   
+        <Route path="/mesero">
+          <Waiter />
+        </Route>
+
+        <Route path="/cocina">
+          <Kitchen />
+        </Route>
+
+      </Router>
+    )
   }
+
+}
 
 export default Navbar;

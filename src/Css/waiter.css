@@ -10,9 +10,24 @@
   flex-direction: row;
   justify-content: space-evenly;
 }
+.cliente::placeholder {
+ color:#ffff;
+}
+.cliente {
+  
+  background: rgba(209, 88, 44, 0.89);
+  border-radius: 4px;
+  font-family: 'Open Sans';
+  color: #fff;
+  border: none;
+  margin: 0.7em 0 0.7em 0;
+  width: 24%;
+  text-align: center;
+  height: 6vh;
+}
 
 #btn {
-  height: 6vh;
+  height: 8vh;
   border-radius: 3%; 
   font-family: 'Open Sans', sans-serif; 
   font-size: 27px;

@@ -3,6 +3,7 @@ import '../Css/waiter.css';
 import Breakfast from './Breakfast';
 import Lunch from './Lunch.jsx';
 import OrderBox from './OrderBox.jsx';
+import InputOrders from './InputOrders'
 
 class Waiter extends React.Component {
   constructor() {
@@ -51,6 +52,7 @@ class Waiter extends React.Component {
               onClick={this.onclickBreakfast}>Desayuno</button>
             <button className="btn btn-danger btn-lg" id="btn"
               onClick={this.onclickLunch}>Almuerzo</button>
+            <InputOrders />
           </div>
           <div className="containerTabla">
             {!this.state.desayuno ? <Breakfast /> : null}

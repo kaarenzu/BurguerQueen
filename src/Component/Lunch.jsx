@@ -20,7 +20,7 @@ class Lunch extends React.Component {
   render() {
     return (
       <div>
-        <table class="table table-dark">
+        <table className="table table-dark">
           <thead>
             <tr>
               <th scope="col">Nombre</th>
@@ -30,7 +30,7 @@ class Lunch extends React.Component {
           </thead>
           {this.state.lunch.map((element, key) => {
             return (
-              <tbody>
+              <tbody key={key}>
                 <tr>
                   <th scope="row">{element.name}</th>
                   <td>${element.price}</td>
