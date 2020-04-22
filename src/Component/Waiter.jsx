@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import '../Css/waiter.css';
 import Breakfast from './Breakfast';
 import Lunch from './Lunch.jsx';
-import OrderBox from './OrderBox.jsx';
+// import OrderBox from './OrderBox.jsx';
 import InputOrders from './InputOrders'
 
 class Waiter extends React.Component {
@@ -57,7 +57,7 @@ class Waiter extends React.Component {
           <div className="containerTabla">
             {!this.state.desayuno ? <Breakfast /> : null}
             {!this.state.lunch ? <Lunch /> : null}
-            <OrderBox />
+            {/* <OrderBox /> */}
           </div>
         </div>
       </Fragment>)
