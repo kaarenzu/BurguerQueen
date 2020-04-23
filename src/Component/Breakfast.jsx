@@ -19,7 +19,8 @@ class Breakfast extends React.Component {
     
     let obj = {
       nombre: event.target.name,
-      precio:event.target.value
+      precio:event.target.value,
+      id: event.target.id
     }
     ArrayPedidos.push(obj)
     this.setState({newOrder:ArrayPedidos})
@@ -41,8 +42,8 @@ class Breakfast extends React.Component {
   }
   render() {
     return (
-      <div>
-        <table className="table table-dark">
+      <div className="containerTablaBreak">
+        <table className="table table-dark"id ="Tabla">
           <thead>
             <tr>
               <th scope="col">Nombre</th>
@@ -56,7 +57,7 @@ class Breakfast extends React.Component {
                 <tr>
                   <th scope="row" onChange={this.onClickNewOrder}>{element.name}</th>
                   <td value={element.price} onChange={this.onClickNewOrder}>${element.price}</td>
-                  <td><button name={element.name} value={element.price} className="Agregar" 
+                  <td><button name={element.name} value={element.price} id={element.id}className="Agregar" 
                   onClick={this.onClickNewOrder}>Agregar</button></td>
                 </tr>
               </tbody>

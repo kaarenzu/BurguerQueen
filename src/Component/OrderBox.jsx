@@ -11,7 +11,28 @@ import PropTypes from 'prop-types';
 
 
 class OrderBox extends React.Component {
+constructor(props){
+  super(props);
+  this.state= {
+    eliminar:this.props.foods
+  }
+  this.onclickEliminar = this.onclickEliminar.bind(this);
+}
+onclickEliminar=(id)=> {
+ console.log(id,'id')
 
+ let newEliminar= this.props.foods;
+ 
+ console.log(newEliminar, 'mostrando');
+let eliminar = newEliminar.filter(item =>{
+  return item.id !==id
+})
+//  var siBorra = newEliminar.splice(0);
+ this.setState({eliminar:eliminar})
+// this.setState({eliminar:siBorra})
+ console.log(this.state.eliminar, 'eliminar')
+
+}
 
   render() {
     return (
@@ -25,13 +46,14 @@ class OrderBox extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.foods.map((item) => (
+            {this.state.eliminar.map((item,key) => (
               <Fragment>
-                <tr>
-                  <th scope="col">{item.nombre}</th>
+                <tr >
+                  <th scope="col"onChange={this.onclickEliminar}>{item.nombre}</th>
                   <th scope="col">{item.precio}</th>
-                  <th scope="col"></th>
-                  <th scope="col"><button className="Eliminar">Eliminar</button></th>
+                  <th scope="col">{item.id}</th>
+                  <th scope="col"><button className="Eliminar"
+                  onClick={()=>this.onclickEliminar(item.id)}id={item.id}>Eliminar</button></th>
                 </tr>
               </Fragment>
             ))}
