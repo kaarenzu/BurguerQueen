@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import '../Css/orderBox.css';
 import PropTypes from 'prop-types';
+import equal from 'fast-deep-equal';
 // import TablaPedidos from './TablaPedidos';
 // 1.- Inyectar componente OrderBox
 // 2.- Pasarle al componente OrderBox el arreglo this.state.newArray como prop
@@ -13,27 +14,48 @@ import PropTypes from 'prop-types';
 class OrderBox extends React.Component {
 constructor(props){
   super(props);
+  // console.log(props,'props')
   this.state= {
     eliminar:this.props.foods
   }
   this.onclickEliminar = this.onclickEliminar.bind(this);
 }
 onclickEliminar=(id)=> {
- console.log(id,'id')
+//  console.log(id,'id')
 
- let newEliminar= this.props.foods;
- 
- console.log(newEliminar, 'mostrando');
-let eliminar = newEliminar.filter(item =>{
+//  console.log(newEliminar, 'mostrando');
+let eliminarD = this.state.eliminar.filter(item =>{
   return item.id !==id
 })
 //  var siBorra = newEliminar.splice(0);
- this.setState({eliminar:eliminar})
+ this.setState({eliminar:eliminarD})
 // this.setState({eliminar:siBorra})
  console.log(this.state.eliminar, 'eliminar')
 
 }
-
+componentDidMount(){
+  this.state.eliminar.map((item,key) => (
+    <Fragment>
+      <tr >
+        <th key ={key.id}scope="col">{item.nombre}</th>
+        <th scope="col">{item.precio}</th>
+        <th scope="col">{item.id}</th>
+        <th scope="col"><button className="Eliminar"
+        onClick={()=>this.onclickEliminar(item.id)}id={item.id}>Eliminar</button></th>
+      </tr>
+    </Fragment>
+  ))
+}
+componentDidUpdate(prevProps, nextState){
+ 
+  if(!equal(this.props.foods,nextState)){
+     this.setState({eliminar: this.props.foods})
+      console.log(this.props.foods, ' props.foods upDate')
+      console.log(prevProps.foods, ' pre.foods upDate')
+    
+  }
+ 
+}
   render() {
     return (
       <Fragment>
@@ -49,7 +71,7 @@ let eliminar = newEliminar.filter(item =>{
             {this.state.eliminar.map((item,key) => (
               <Fragment>
                 <tr >
-                  <th scope="col"onChange={this.onclickEliminar}>{item.nombre}</th>
+                  <th key ={key.id}scope="col">{item.nombre}</th>
                   <th scope="col">{item.precio}</th>
                   <th scope="col">{item.id}</th>
                   <th scope="col"><button className="Eliminar"
