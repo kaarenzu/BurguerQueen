@@ -46,16 +46,16 @@ componentDidMount(){
     </Fragment>
   ))
 }
-componentDidUpdate(prevProps, nextState){
+// componentDidUpdate(prevProps, nextState){
  
-  if(!equal(this.props.foods,nextState)){
-     this.setState({eliminar: this.props.foods})
-      console.log(this.props.foods, ' props.foods upDate')
-      console.log(prevProps.foods, ' pre.foods upDate')
+//   if(!equal(this.props.foods,nextState)){
+//      this.setState({eliminar: this.props.foods})
+//       console.log(this.props.foods, ' props.foods upDate')
+//       console.log(prevProps.foods, ' pre.foods upDate')
     
-  }
+//   }
  
-}
+// }
   render() {
     return (
       <Fragment>
