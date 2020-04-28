@@ -14,7 +14,7 @@ class Breakfast extends React.Component {
     this.onClickNewOrder = this.onClickNewOrder.bind(this);
   }
   onClickNewOrder(event) {
-    console.log(event.target, 'event')
+    // console.log(event.target, 'event')
     const ArrayPedidos = this.state.newOrder;
     
     let obj = {
@@ -27,8 +27,8 @@ class Breakfast extends React.Component {
 
 
 
-    console.log(ArrayPedidos, 'arraypedidos')
-    console.log(this.state.newOrder, 'nuevo array')
+    // console.log(ArrayPedidos, 'arraypedidos')
+    // console.log(this.state.newOrder, 'nuevo array')
 
   }
 

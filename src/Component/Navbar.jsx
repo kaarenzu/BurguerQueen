@@ -61,8 +61,8 @@ class Navbar extends React.Component {
         {/* Nav pc */}
         <nav className="menu">
           <ul>
-            <Link to="/" className="text-white "><li>Pedidos listos</li></Link>
-            <Link to="/" className="text-white "><li>Pedidos enviados</li></Link>
+            <Link to="/" className="text-white "><li>Home</li></Link>
+            <Link to="/" className="text-white "><li>Cocina</li></Link>
           </ul>
         </nav>
         <Route exact path="/">
