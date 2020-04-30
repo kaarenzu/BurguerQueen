@@ -1,7 +1,9 @@
 import React, { Fragment } from 'react';
 import '../Css/orderBox.css';
 import PropTypes from 'prop-types';
-import equal from 'fast-deep-equal';
+// import equal from 'fast-deep-equal';
+import {db} from '../Component/ConfigFirebase.jsx';
+import Kitchen from './Kitchen.jsx'
 // import TablaPedidos from './TablaPedidos';
 // 1.- Inyectar componente OrderBox
 // 2.- Pasarle al componente OrderBox el arreglo this.state.newArray como prop
@@ -19,7 +21,37 @@ constructor(props){
     eliminar:this.props.foods
   }
   this.onclickEliminar = this.onclickEliminar.bind(this);
+  // this.sumar = this.sumar.bind(this);
+  this.onclickEnviar = this.onclickEnviar.bind(this);
+
 }
+onclickEnviar =(event) => {
+  // const user = firebase.auth().currentUser;
+  db.collection('pedidos').add({
+    pedido: this.state.eliminar,
+    datatime: new Date(),
+
+  })
+    .then((postNew) => {
+      // const collecionPost = db.collection('pedidos');
+      // const collecionPostOrdenada = collecionPost.orderBy('datatime', 'desc');
+      // collecionPostOrdenada.get().then((element) => {
+      //   const postNew = element.docs.map(doc => doc.data());
+      //   console.log(postNew, 'postNew')
+      //   this.setState({
+      //     mensaje: [],
+      //     mostrarPost: postNew,
+         
+      //   })
+        
+      // })
+      console.log('funciono y agregué pedido')
+    })
+      .catch((error) => {
+        console.error('Error adding document: ', error);
+    });
+}
+
 onclickEliminar=(id)=> {
 //  console.log(id,'id')
 
@@ -79,14 +111,18 @@ componentDidMount(){
                 </tr>
               </Fragment>
             ))}
-            <tr>
+           
+               <tr>
               <th scope="row">Total</th>
-              <th scope="row">{}</th>
+              <th scope="row">{this.sumar}</th>
               <th scope="row"></th>
-              <th scope="row"><button className="Enviar">Enviar</button></th>
+              <th scope="row"><button className="Enviar" onClick={this.onclickEnviar}>Enviar</button></th>
             </tr>
+            
+         
           </tbody>
         </table>
+        
       </Fragment>
     )
 
@@ -96,4 +132,5 @@ componentDidMount(){
 OrderBox.propTypes = {
   foods: PropTypes.array.isRequired
 }
+
 export default OrderBox;
